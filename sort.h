@@ -5,10 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Function prototypes */
-void print_array(const int *array, size_t size);
-void bubble_sort(int *array, size_t size);
-
 /* Doubly linked list structure for print_list function */
 
 /**
@@ -25,7 +21,12 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
-/* Function prototype for print_list function */
+/* Function prototypes for sorting algorithms */
+void bubble_sort(int *array, size_t size);
+void insertion_sort_list(listint_t **list);
+
+/* Function prototype for print_list and print_array function */
 void print_list(const listint_t *list);
+void print_array(const int *array, size_t size);
 
 #endif /* SORT_H */
