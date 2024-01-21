@@ -7,17 +7,6 @@
 void print_array(const int *array, size_t size);
 void bubble_sort(int *array, size_t size);
 
-/**
- * enum bool - Enumeration of Boolean values.
- * @false: Equals 0.
- * @true: Equals 1.
- */
-typedef enum bool
-{
-	false = 0,
-	true
-} bool;
-
 /* Doubly linked list structure for print_list function */
 
 /**
