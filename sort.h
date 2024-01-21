@@ -2,6 +2,8 @@
 #define SORT_H
 
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /* Function prototypes */
 void print_array(const int *array, size_t size);
