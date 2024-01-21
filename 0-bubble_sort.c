@@ -2,10 +2,9 @@
 #include <stdio.h>
 
 /**
- * bubble_sort - Sorts an array of integers in ascending order using
- *               the Bubble Sort algorithm.
+ * bubble_sort - Sorts an array of integers using the bubble sort algorithm.
  * @array: The array to be sorted.
- * @size: The size of the array.
+ * @size: Number of elements in the array.
  */
 void bubble_sort(int *array, size_t size)
 {
@@ -24,12 +23,14 @@ void bubble_sort(int *array, size_t size)
 				temp = array[j];
 				array[j] = array[j + 1];
 				array[j + 1] = temp;
-
 				swapped = 1;
+
+				/* Print array after each swap */
 				print_array(array, size);
 			}
 		}
 
+		/* If no two elements were swapped by inner loop, the array is sorted */
 		if (swapped == 0)
 			break;
 	}
