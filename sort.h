@@ -41,6 +41,6 @@ listint_t *create_listint(const int *array, size_t size);
 /* Helper function prototypes  */
 void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker);
 void swap_node_behind(listint_t **list, listint_t **tail, listint_t **shaker);
-
+int get_max(int *array, int size);
 
 #endif /* SORT_H */
