@@ -9,15 +9,15 @@
  */
 int get_max(int *array, size_t size)
 {
-    int max, i;
+	int max, i;
 
-    for (max = array[0], i = 1; i < (int)size; i++)
-    {
-        if (array[i] > max)
-            max = array[i];
-    }
+	for (max = array[0], i = 1; i < (int)size; i++)
+	{
+		if (array[i] > max)
+			max = array[i];
+	}
 
-    return (max);
+	return (max);
 }
 
 /**
