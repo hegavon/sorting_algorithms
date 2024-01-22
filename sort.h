@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 /* Doubly linked list structure for print_list function */
 
@@ -28,7 +29,6 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
-void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
 
 /* Function prototype for print_list and print_array function */
 void print_list(const listint_t *list);
@@ -36,6 +36,10 @@ void print_array(const int *array, size_t size);
 
 /* Function prototypes for linked list operations */
 listint_t *create_listint(const int *array, size_t size);
-void free_list(listint_t *list);
+
+/* Helper function prototypes  */
+void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker);
+void swap_node_behind(listint_t **list, listint_t **tail, listint_t **shaker);
+
 
 #endif /* SORT_H */
