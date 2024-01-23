@@ -6,7 +6,7 @@
 #include <string.h>
 
 /**
- * typedef enum kind_e - Suit of the card
+ * enum kind_e - Suit of the card
  * @SPADE: Spade suit
  * @HEART: Heart suit
  * @CLUB: Club suit
