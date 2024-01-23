@@ -37,9 +37,10 @@ void sort_deck(deck_node_t **deck)
 	if (deck == NULL || *deck == NULL)
 		return;
 
-	count = 0;
 	current = *deck;
+	count = 0;
 
+	/* Count the number of cards in the deck */
 	while (current != NULL)
 	{
 		count++;
@@ -66,7 +67,6 @@ void sort_deck(deck_node_t **deck)
 		deck_array[i]->next = (i == count - 1) ? NULL : deck_array[i + 1];
 	}
 
-	/* Update the head of the deck */
 	*deck = deck_array[0];
 
 	free(deck_array);
