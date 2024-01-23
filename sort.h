@@ -38,6 +38,7 @@ void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
 
 
 /* Function prototype for print_list and print_array function */
@@ -50,6 +51,6 @@ listint_t *create_listint(const int *array, size_t size);
 /* Helper function prototypes  */
 void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker);
 void swap_node_behind(listint_t **list, listint_t **tail, listint_t **shaker);
-
+void swap_ints(int *a_quick, int *b_quick);
 
 #endif /* SORT_H */
