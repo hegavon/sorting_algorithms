@@ -1,23 +1,26 @@
+#include <stdio.h>
 #include "sort.h"
 
 /**
- * swap_ints - Swap two integers in an array.
+ * swap_ints - Swaps two integers in an array.
  * @a: The first integer to swap.
  * @b: The second integer to swap.
  */
 void swap_ints(int *a, int *b)
 {
-    int tmp = *a;
+    int tmp;
+
+    tmp = *a;
     *a = *b;
     *b = tmp;
 }
 
 /**
- * bitonic_compare_swap - Compare and swap two integers based on the direction.
- * @array: An array of integers.
- * @i: Index of the first element.
- * @j: Index of the second element.
- * @dir: Sorting direction (UP or DOWN).
+ * bitonic_compare_swap - Compares and swaps two elements in an array.
+ * @array: The array containing elements to swap.
+ * @i: The index of the first element.
+ * @j: The index of the second element.
+ * @dir: The sorting direction (UP or DOWN).
  */
 void bitonic_compare_swap(int *array, size_t i, size_t j, int dir)
 {
@@ -30,11 +33,11 @@ void bitonic_compare_swap(int *array, size_t i, size_t j, int dir)
 }
 
 /**
- * bitonic_merge - Merge a bitonic sequence.
- * @array: An array of integers.
- * @low: Starting index of the sequence.
- * @cnt: Size of the sequence.
- * @dir: Sorting direction (UP or DOWN).
+ * bitonic_merge - Merges two subarrays in bitonic order.
+ * @array: The array containing subarrays to merge.
+ * @low: The starting index of the subarray.
+ * @cnt: The size of the subarray.
+ * @dir: The sorting direction (UP or DOWN).
  */
 void bitonic_merge(int *array, size_t low, size_t cnt, int dir)
 {
@@ -52,11 +55,11 @@ void bitonic_merge(int *array, size_t low, size_t cnt, int dir)
 }
 
 /**
- * bitonic_recursive_sort - Recursive Bitonic Sort.
- * @array: An array of integers.
- * @low: Starting index of the sequence.
- * @cnt: Size of the sequence.
- * @dir: Sorting direction (UP or DOWN).
+ * bitonic_recursive_sort - Recursively sorts an array using bitonic sort.
+ * @array: The array to sort.
+ * @low: The starting index of the array.
+ * @cnt: The size of the array.
+ * @dir: The sorting direction (UP or DOWN).
  */
 void bitonic_recursive_sort(int *array, size_t low, size_t cnt, int dir)
 {
@@ -64,11 +67,11 @@ void bitonic_recursive_sort(int *array, size_t low, size_t cnt, int dir)
     {
         size_t k = cnt / 2;
 
-        printf("Merging [%lu/%lu] (%s):\n", k, cnt, (dir == UP) ? "UP" : "DOWN");
-        print_array(array + low, cnt);
-
         bitonic_recursive_sort(array, low, k, UP);
         bitonic_recursive_sort(array, low + k, k, DOWN);
+
+        printf("Merging [%lu/%lu] (%s):\n", cnt, cnt, (dir == UP) ? "UP" : "DOWN");
+        print_array(array + low, cnt);
 
         bitonic_merge(array, low, cnt, dir);
 
@@ -78,8 +81,8 @@ void bitonic_recursive_sort(int *array, size_t low, size_t cnt, int dir)
 }
 
 /**
- * bitonic_sort - Sort an array of integers using Bitonic Sort.
- * @array: An array of integers.
+ * bitonic_sort - Sorts an array using the bitonic sort algorithm.
+ * @array: The array to sort.
  * @size: The size of the array.
  */
 void bitonic_sort(int *array, size_t size)
