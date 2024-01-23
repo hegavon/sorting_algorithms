@@ -20,12 +20,12 @@ void swap_ints(int *a_bio, int *b_bio)
 }
 
 /**
- * bitonic_merge - Sort a bitonic sequence inside an array of integers.
- * @arr: An array of integers.
- * @size: The size of the array.
- * @start: The starting index of the sequence in array to sort.
- * @seqs: The size of the sequence to sort.
- * @flow: The direction to sort in.
+ * bitonic_merge - Merges two bitonic sequences.
+ * @arr: This is an array of integers.
+ * @size: This is the size of the array.
+ * @start: This is the start index of the sequence to sort.
+ * @seqs: This is the number of elements in the sequence to sort.
+ * @flow: This is the direction of the sequence to sort.
  */
 void bitonic_merge(int *arr, size_t size, size_t start, size_t seqs,
 		char flow)
@@ -51,11 +51,11 @@ void bitonic_merge(int *arr, size_t size, size_t start, size_t seqs,
 
 /**
  * bitonic_seq - Convert an array of integers into a bitonic sequence.
- * @arr: An array of integers.
- * @size: The size of the array.
- * @start: The starting index of a block of the building bitonic sequence.
- * @seqs: The size of a block of the building bitonic sequence.
- * @flow: The direction to sort the bitonic sequence block in.
+ * @arr: This is an array of integers.
+ * @size: This is the size of the array in the sequence.
+ * @start: This is the start index of the sequence to sort.
+ * @seqs:  This is the number of elements in the sequence to sort.
+ * @flow: This is the direction of the sequence to sort.
  */
 void bitonic_seq(int *arr, size_t size, size_t start, size_t seqs, char flow)
 {
@@ -76,12 +76,12 @@ void bitonic_seq(int *arr, size_t size, size_t start, size_t seqs, char flow)
 }
 
 /**
- * bitonic_sort - Sort an array of integers in ascending
+ * bitonic_sort - This function sort an array of integers in ascending
  *                order using the bitonic sort algorithm.
- * @arr: An array of integers.
- * @size: The size of the array.
+ * @arr: This is an array of integers.
+ * @size: This is the size of the array.
  *
- * Description: Prints the array after each swap. Only works for
+ * Description: The function prints the array after each swap. Only works for
  * size = 2^k where k >= 0 (ie. size equal to powers of 2).
  */
 void bitonic_sort(int *arr, size_t size)
