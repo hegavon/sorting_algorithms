@@ -8,8 +8,8 @@
  */
 int compare_cards(const void *a, const void *b)
 {
-    return strcmp(((deck_node_t *)a)->card->value,
-                  ((deck_node_t *)b)->card->value);
+	return strcmp(((deck_node_t *)a)->card->value,
+			((deck_node_t *)b)->card->value);
 }
 
 /**
@@ -18,48 +18,48 @@ int compare_cards(const void *a, const void *b)
  */
 void sort_deck(deck_node_t **deck)
 {
-    size_t count;
-    deck_node_t *current, **deck_array;
-    size_t i;
+	size_t count;
+	deck_node_t *current, **deck_array;
+	size_t i;
 
-    if (deck == NULL || *deck == NULL)
-        return;
+	if (deck == NULL || *deck == NULL)
+		return;
 
-    count = 0;
-    current = *deck;
+	count = 0;
+	current = *deck;
 
-    /* Count the number of cards in the deck */
-    while (current != NULL)
-    {
-        count++;
-        current = current->next;
-    }
+	/* Count the number of cards in the deck */
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
 
-    /* Convert the deck to an array for sorting */
-    deck_array = malloc(sizeof(deck_node_t *) * count);
+	/* Convert the deck to an array for sorting */
+	deck_array = malloc(sizeof(deck_node_t *) * count);
 
-    if (deck_array == NULL)
-        return;
+	if (deck_array == NULL)
+		return;
 
-    current = *deck;
-    for (i = 0; i < count; i++)
-    {
-        deck_array[i] = current;
-        current = current->next;
-    }
+	current = *deck;
+	for (i = 0; i < count; i++)
+	{
+		deck_array[i] = current;
+		current = current->next;
+	}
 
-    /* Sort the array of deck nodes using qsort */
-    qsort(deck_array, count, sizeof(deck_node_t *), compare_cards);
+	/* Sort the array of deck nodes using qsort */
+	qsort(deck_array, count, sizeof(deck_node_t *), compare_cards);
 
-    /* Reconnect the sorted nodes to form the sorted deck */
-    for (i = 0; i < count; i++)
-    {
-        deck_array[i]->prev = (i == 0) ? NULL : deck_array[i - 1];
-        deck_array[i]->next = (i == count - 1) ? NULL : deck_array[i + 1];
-    }
+	/* Reconnect the sorted nodes to form the sorted deck */
+	for (i = 0; i < count; i++)
+	{
+		deck_array[i]->prev = (i == 0) ? NULL : deck_array[i - 1];
+		deck_array[i]->next = (i == count - 1) ? NULL : deck_array[i + 1];
+	}
 
-    /* Update the head of the deck */
-    *deck = deck_array[0];
+	/* Update the head of the deck */
+	*deck = deck_array[0];
 
-    free(deck_array);
+	free(deck_array);
 }
