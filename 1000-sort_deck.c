@@ -4,12 +4,24 @@
  * compare_cards - Comparison function for qsort
  * @a: Pointer to the first card
  * @b: Pointer to the second card
+ *
  * Return: Positive if a > b, negative if a < b, 0 if a == b
  */
 int compare_cards(const void *a, const void *b)
 {
-	return (strcmp(((deck_node_t *)a)->card->value,
-				((deck_node_t *)b)->card->value));
+	const card_t *card_a = ((deck_node_t *)a)->card;
+	const card_t *card_b = ((deck_node_t *)b)->card;
+
+	/* Compare suits first */
+	int suit_cmp = ((int)(card_a->kind)) - ((int)(card_b->kind));
+
+	if (suit_cmp == 0)
+	{
+		/* If suits are the same, compare values */
+		return (strcmp(card_a->value, card_b->value));
+	}
+
+	return (suit_cmp);
 }
 
 /**
