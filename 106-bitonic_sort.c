@@ -51,23 +51,29 @@ void bitonic_merge(int *arr, size_t size, size_t start, size_t seq,
 }
 
 /**
- * bitonic_seq - Recursively converts an array into a bitonic sequence.
- * @arr: Array of integers.
- * @size: Size of the array.
- * @start: Start index of the sequence.
- * @seq: Number of elements in the sequence.
- * @flow: Direction of the sequence.
+ * bitonic_seq - Convert an array of integers into a bitonic sequence.
+ * @arr: This is an array of integers.
+ * @size: This is the size of the array in the sequence.
+ * @start: This is the start index of the sequence to sort.
+ * @seq:  This is the number of elements in the sequence to sort.
+ * @flow: This is the direction of the sequence to sort.
  */
 void bitonic_seq(int *arr, size_t size, size_t start, size_t seq, char flow)
 {
-    size_t cut = seq / 2;
+	size_t cut = seq / 2;
 
-    if (seq > 1)
-    {
-        bitonic_seq(arr, size, start, cut, UP);
-        bitonic_seq(arr, size, start + cut, cut, DOWN);
-        bitonic_merge(arr, size, start, seq, flow);
-    }
+	if (seq > 1)
+	{
+		printf("Merging [%lu/%lu] (%s):\n", seq, size, (flow == UP) ? "UP" : "DOWN");
+		print_array(arr + start, seq);
+
+		bitonic_seq(arr, size, start, cut, UP);
+		bitonic_seq(arr, size, start + cut, cut, DOWN);
+		bitonic_merge(arr, size, start, seq, flow);
+
+		printf("Result [%lu/%lu] (%s):\n", seq, size, (flow == UP) ? "UP" : "DOWN");
+		print_array(arr + start, seq);
+	}
 }
 
 /**
