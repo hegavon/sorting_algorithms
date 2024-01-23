@@ -8,8 +8,8 @@
  */
 int compare_cards(const void *a, const void *b)
 {
-	return strcmp(((deck_node_t *)a)->card->value,
-			((deck_node_t *)b)->card->value);
+	return (strcmp(((deck_node_t *)a)->card->value,
+			((deck_node_t *)b)->card->value));
 }
 
 /**
@@ -28,14 +28,12 @@ void sort_deck(deck_node_t **deck)
 	count = 0;
 	current = *deck;
 
-	/* Count the number of cards in the deck */
 	while (current != NULL)
 	{
 		count++;
 		current = current->next;
 	}
 
-	/* Convert the deck to an array for sorting */
 	deck_array = malloc(sizeof(deck_node_t *) * count);
 
 	if (deck_array == NULL)
@@ -48,10 +46,8 @@ void sort_deck(deck_node_t **deck)
 		current = current->next;
 	}
 
-	/* Sort the array of deck nodes using qsort */
 	qsort(deck_array, count, sizeof(deck_node_t *), compare_cards);
 
-	/* Reconnect the sorted nodes to form the sorted deck */
 	for (i = 0; i < count; i++)
 	{
 		deck_array[i]->prev = (i == 0) ? NULL : deck_array[i - 1];
