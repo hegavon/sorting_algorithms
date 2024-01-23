@@ -9,7 +9,7 @@
 int compare_cards(const void *a, const void *b)
 {
 	return (strcmp(((deck_node_t *)a)->card->value,
-			((deck_node_t *)b)->card->value));
+				((deck_node_t *)b)->card->value));
 }
 
 /**
