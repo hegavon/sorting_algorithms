@@ -6,6 +6,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+/* Comparison direction macros for the bitonic sort */
+#define UP 0
+#define DOWN 1
+
 /* Doubly linked list structure for print_list function */
 
 /**
@@ -33,6 +37,8 @@ void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
+void bitonic_sort(int *array, size_t size);
+
 
 /* Function prototype for print_list and print_array function */
 void print_list(const listint_t *list);
@@ -44,5 +50,6 @@ listint_t *create_listint(const int *array, size_t size);
 /* Helper function prototypes  */
 void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker);
 void swap_node_behind(listint_t **list, listint_t **tail, listint_t **shaker);
+
 
 #endif /* SORT_H */
