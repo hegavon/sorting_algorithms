@@ -1,7 +1,7 @@
 #include "sort.h"
 
 void swap_ints(int *a_bio, int *b_bio);
-void bitonic_merge(int *arr, size_t size, size_t start, size_t seqs, char flow);
+void bitonic_merge(int *arr, size_t size, size_t start, size_t seq, char flow);
 void bitonic_seq(int *arr, size_t size, size_t start, size_t seqs, char flow);
 void bitonic_sort(int *arr, size_t size);
 
@@ -24,15 +24,15 @@ void swap_ints(int *a_bio, int *b_bio)
  * @arr: This is an array of integers.
  * @size: This is the size of the array.
  * @start: This is the start index of the sequence to sort.
- * @seqs: This is the number of elements in the sequence to sort.
+ * @seq: This is the number of elements in the sequence to sort.
  * @flow: This is the direction of the sequence to sort.
  */
-void bitonic_merge(int *arr, size_t size, size_t start, size_t seqs,
+void bitonic_merge(int *arr, size_t size, size_t start, size_t seq,
 		char flow)
 {
-	size_t i, jump = seqs / 2;
+	size_t i, jump = seq / 2;
 
-	if (seqs > 1)
+	if (seq > 1)
 	{
 		for (i = start; i < start + jump; i++)
 		{
@@ -40,8 +40,9 @@ void bitonic_merge(int *arr, size_t size, size_t start, size_t seqs,
 					(flow == DOWN && arr[i] < arr[i + jump]))
 			{
 				swap_ints(arr + i, arr + i + jump);
-				printf("Merging [%lu/%lu] (%s):\n", seqs, size, (flow == UP) ? "UP" : "DOWN");
-				print_array(arr + start, seqs);
+				printf("Merging [%lu/%lu] (%s):\n", seq, size,
+						(flow == UP) ? "UP" : "DOWN");
+				print_array(arr + start, seq);
 			}
 		}
 		bitonic_merge(arr, size, start, jump, flow);
@@ -54,24 +55,24 @@ void bitonic_merge(int *arr, size_t size, size_t start, size_t seqs,
  * @arr: This is an array of integers.
  * @size: This is the size of the array in the sequence.
  * @start: This is the start index of the sequence to sort.
- * @seqs:  This is the number of elements in the sequence to sort.
+ * @seq:  This is the number of elements in the sequence to sort.
  * @flow: This is the direction of the sequence to sort.
  */
-void bitonic_seq(int *arr, size_t size, size_t start, size_t seqs, char flow)
+void bitonic_seq(int *arr, size_t size, size_t start, size_t seq, char flow)
 {
-	size_t cut = seqs / 2;
+	size_t cut = seq / 2;
 
-	if (seqs > 1)
+	if (seq > 1)
 	{
-		printf("Merging [%lu/%lu] (%s):\n", seqs, size, (flow == UP) ? "UP" : "DOWN");
-		print_array(arr + start, seqs);
+		printf("Merging [%lu/%lu] (%s):\n", seq, size, (flow == UP) ? "UP" : "DOWN");
+		print_array(arr + start, seq);
 
 		bitonic_seq(arr, size, start, cut, UP);
 		bitonic_seq(arr, size, start + cut, cut, DOWN);
-		bitonic_merge(arr, size, start, seqs, flow);
+		bitonic_merge(arr, size, start, seq, flow);
 
-		printf("Result [%lu/%lu] (%s):\n", seqs, size, (flow == UP) ? "UP" : "DOWN");
-		print_array(arr + start, seqs);
+		printf("Result [%lu/%lu] (%s):\n", seq, size, (flow == UP) ? "UP" : "DOWN");
+		print_array(arr + start, seq);
 	}
 }
 
