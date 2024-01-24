@@ -2,7 +2,7 @@
 
 /**
  * hoare_partition - Order a subset of an array of integers
- *                   according to the Hoare partition scheme.
+ *                   according to the hoare partition scheme.
  * @array: The array of integers.
  * @size: The size of the array.
  * @left: The starting index of the subset to order.
@@ -44,7 +44,7 @@ int hoare_partition(int *array, size_t size, int left, int right)
  * @left: The starting index of the array partition to order.
  * @right: The ending index of the array partition to order.
  *
- * Description: Uses the Hoare partition scheme.
+ * Description: Uses the hoare partition scheme.
  */
 void hoare_sort(int *array, size_t size, int left, int right)
 {
