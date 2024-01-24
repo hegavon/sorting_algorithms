@@ -60,8 +60,8 @@ char get_card_value(deck_node_t *card)
 }
 
 /**
- * sort_deck_by_kind - Sort a deck of cards from spades to diamonds.
- * @deck: A pointer to the head of a deck_node_t doubly-linked list.
+ * sort_deck_by_kind - Sorts a deck of cards from spades to diamonds
+ * @deck: A pointer to the head of a deck_node_t doubly-linked list
  */
 void sort_deck_by_kind(deck_node_t **deck)
 {
@@ -90,8 +90,8 @@ void sort_deck_by_kind(deck_node_t **deck)
 
 /**
  * sort_deck_by_value - Sort a deck of cards sorted from
- *                      spades to diamonds from ace to king.
- * @deck: A pointer to the head of a deck_node_t doubly-linked list.
+ *                      spades to diamonds from ace to king
+ * @deck: A pointer to the head of a deck_node_t doubly-linked list
  */
 void sort_deck_by_value(deck_node_t **deck)
 {
@@ -122,8 +122,8 @@ void sort_deck_by_value(deck_node_t **deck)
 
 /**
  * sort_deck - It sorts a deck of cards from ace to king and
- *             from spades to diamonds.
- * @deck: This is a pointer to the head of a deck_node_t doubly-linked list.
+ *             from spades to diamonds
+ * @deck: This is a pointer to the head of a deck_node_t doubly-linked list
  */
 void sort_deck(deck_node_t **deck)
 {
